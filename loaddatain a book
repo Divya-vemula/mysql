@@ -1,0 +1,5 @@
+LOAD DATA LOCAL INFILE "C:\\Users\\Sankar\\Desktop\\Book1.csv" INTO TABLE book1
+FIELDS TERMINATED BY ' , '
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(id,product_name,category_id,price,sale_price)
