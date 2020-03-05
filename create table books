@@ -1,0 +1,7 @@
+CREATE TABLE book1 (
+id INT NOT NULL PRIMARY KEY,
+product_name VARCHAR(40),
+category_id INT,
+price INT,
+sale_price INT
+);
