@@ -1,0 +1,33 @@
+CREATE TABLE book1 (
+id INT NOT NULL PRIMARY KEY,
+product_name VARCHAR(40),
+category_id INT,
+price INT,
+sale_price INT
+);
+
+CREATE TABLE mini_statement(
+id INT NOT NULL,
+sale_price INT,
+foreign key(id) references book1(id) on delete cascade);
+
+
+insert into book1 values (6," nokia",09653,13000,12500);
+insert into book1 values (7," nokia",09653,13000,12500);
+
+
+
+DELIMITER //
+CREATE TRIGGER update_book
+   before update on book1
+   for each row 
+   BEGIN
+   insert into mini_statement values(old.id,old.sale_price);
+   END; //
+DELIMITER;
+
+
+ update book1 set sale_price=sale_price+3000 where id=1;
+ update book1 set sale_price=sale_price+3000 where id=3;
+
+
