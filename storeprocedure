@@ -1,0 +1,26 @@
+DELIMITER //
+
+CREATE PROCEDURE getall()
+
+BEGIN
+
+SELECT staff.id, employees.first_name, employees.last_name, positions.position, salary.salary
+
+
+FROM staff
+
+
+join employees on employees.id = staff.first_name
+
+
+join positions on positions.id = staff.position
+
+
+join salary on salary.id = staff.salary
+
+ORDER BY staff.id;
+
+END //
+
+
+show PROCEDURE status;
